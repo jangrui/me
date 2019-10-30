@@ -1,0 +1,32 @@
+{
+  "name": "me",
+  "version": "2.0.0",
+  "description": "me.jangrui.com",
+  "main": "index.html",
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development --open --hot",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jangrui/me.git"
+  },
+  "author": "Jangrui",
+  "license": "cc-by-sa-4.0",
+  "homepage": "http://jangrui.github.io/me",
+  "devDependencies": {
+    "autoprefixer": "^9.7.0",
+    "css-loader": "^3.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^6.0.0",
+    "less": "^3.10.0",
+    "less-loader": "^5.0.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
