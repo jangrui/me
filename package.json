@@ -13,7 +13,7 @@
   },
   "author": "Jangrui",
   "license": "cc-by-sa-4.0",
-  "homepage": "http://jangrui.github.io/me",
+  "homepage": "http://me.jangrui.com",
   "devDependencies": {
     "autoprefixer": "^9.7.0",
     "css-loader": "^3.2.0",
