@@ -33,6 +33,7 @@
             </section>
         </header>
         <div class="content-bd">
+            <!-- <div class="content-left"> -->
             <div class="content-left">
                 <section id="experience">
                     <header class="section-hd">
@@ -71,10 +72,12 @@
                         <span class="section-title-r"></span>
                     </header>
                     <div class="section-bd">
+
+                        <!-- 广铁集团监控系统 -->
                         <div class="item item-main">
                             <header class="item-hd">
                                 <a class="btn item-more" href="https://edu.gzrailway.com.cn" target="_blank" title="工作经历">项目</a>
-                                <h3 class="item-name">广铁集团教育系统部署</h3>
+                                <h3 class="item-name">广铁集团监控系统</h3>
                             </header>
                         </div>
                         <div class="item">
@@ -83,7 +86,7 @@
                             </header>
                             <div class="item-bd">
                                 <p class="section-content">
-                                    搭建集团自动化平台，实现自动化部署广铁集团教育系统，提升工作效率。
+                                    实现现有监控平台统一化，减少不必要的工作量。
                                 </p>
                             </div>
                         </div>
@@ -93,16 +96,16 @@
                             </header>
                             <div class="item-bd">
                                 <li class="section-content">
-                                    保障并不断提升服务的可用性，提升用戶体验；
+                                    实现 IT 基础设施全局监控，包括网络系统监控、服务器监控、操作系统监控、数据库监控、中间件监控、应用监控等。
                                 </li>
                                 <li class="section-content">
-                                    利用自动化工具提升软件在研发生命周期中的工程效率；
+                                    提供告警分析机制，快速定位问题根源并找到相应的解决方案，缩短故障解决时间，减少维护成本。
                                 </li>
                                 <li class="section-content">
-                                    通过技术手段优化服务架构、性能调优；
+                                    提供各类资源的分析报表，从各个侧面、各个角度反映系统的运行状况、性能情况，为系统升级、改造、扩容提供科学依据。
                                 </li>
                                 <li class="section-content">
-                                    通过资源优化组合降低成本、提升投产比。
+                                    提供大屏幕整合信息，展示资源运行情况、性能状况等，使得领导、管理者、技术人员能迅速了解问题所在。
                                 </li>
                             </div>
                         </div>
@@ -112,19 +115,28 @@
                             </header>
                             <div class="item-bd">
                                 <li class="section-content">
-                                    利用 ansible 批量部署 docker 环境；
+                                    团队对 zabbix 熟悉度高，而且文档多，技术成熟，可满足需求，直接选择 zabbix 平台；
                                 </li>                                
                                 <li class="section-content">
-                                    搭建 gitlab 集群，通过 nfs 共享数据，使用 Keepalived 实现故障切换；
+                                    数据库采用三节点 MySQL Galera Cluster 集群，后期根据业务需求增加集群数量并使用中间件做数据切分；
                                 </li>
                                 <li class="section-content">
-                                    搭建 jenkins 集群，解决单点服务器存在的性能瓶颈；
+                                    部署 Zabbix 服务及各类组件，后期添加 Zabbix Proxy 服务实现分区域监控，减轻 Server 压力；
                                 </li>
                                 <li class="section-content">
-                                    构建教育系统 docker 镜像；
+                                    利用 Ansible 实现 Zabbix Agent 自动化部署；
                                 </li>
                                 <li class="section-content">
-                                    利用 gitlab + jenkins + docker 实现自动化部署；
+                                    根据各类业务服务编写监控脚本和模板；
+                                </li>
+                                <li class="section-content">
+                                    部署 grafana 并配置 zabbix 数据源，实现大屏展示；
+                                </li>
+                                <li class="section-content">
+                                    后期借助 MySQL 中间件实现对 Zabbix 产生的 history、history_text、history_uint 等大表进行读写分离，进一步减轻压力；
+                                </li>
+                                <li class="section-content">
+                                    Zabbix 的历史数据对接 Elasticsearch，方便历史数据查询；
                                 </li>
                             </div>
                         </div>
@@ -134,16 +146,23 @@
                             </header>
                             <div class="item-bd">
                                 <p class="section-content">
-                                    在接触到自动化平台时，颠覆了对运维的认知；受益于开源，知识面扩展丰富，整个项目进展非常迅速。
+                                    Zabbix 整体架构过大，各服务器功能应独立分类，应使用分布式 Proxy 部署，维护的时候很方便，例如清理 Zabbix 的历史数据，Zabbix 停掉后，可以设置监控数据在 proxy 端保留时间长一些，等维护好后 Proxy 会同步数据到 Server，尽量减少数据丢失。
+                                </p>
+                                <p class="section-content">
+                                    优化网络延迟，不可忽略的存在；例如，两个同样硬件配置的 Proxy ，A 的网络延迟为10ms，NVPS 约为 640，B 的网络延迟在 230ms，NVPS 约为 500，A 能够在 2-3 秒内发送 15000 个值，B 仅发送了 1000 个值。
+                                </p>
+                                <p class="section-content">
+                                    可以考虑更换 ssd 固态硬盘，提高 MySQL 服务器 IO 性能。
                                 </p>
                             </div>
                         </div>
 
+                        <!-- 日志分析平台建设 -->
                         <div class="item item-main">
-                            <div class="item-hd">
-                                <a class="btn item-more" href="https://docs.gzrailway.com.cn" target="_blank" title="工作经历">项目</a>                                
-                                <h3 class="item-name">广铁文库系统重构</h3>
-                            </div>
+                            <header class="item-hd">
+                                <a class="btn item-more" href="https://edu.gzrailway.com.cn" target="_blank" title="工作经历">项目</a>
+                                <h3 class="item-name">广铁集团日志分析平台</h3>
+                            </header>
                         </div>
                         <div class="item">
                             <header class="item-hd">
@@ -151,7 +170,7 @@
                             </header>
                             <div class="item-bd">
                                 <p class="section-content">
-                                    因现有文库系统负载较高，访问迟钝，无法满足正常办公，对此重构升级。
+                                    搭建支持高并发高可靠的日志分析平台，方便开发人员快速的检索日志，排查问题，同时提供友好的分析和统计的界面。
                                 </p>
                             </div>
                         </div>
@@ -160,9 +179,18 @@
                                 <h3 class="item-name"><i class="iconfont icon-dot"></i> 项目要求 </h3>
                             </header>
                             <div class="item-bd">
-                                <p class="section-content">
-                                    实现高并发，高可用，高性能。
-                                </p>
+                                <li class="section-content">
+                                    不需要开发人员登录生产服务器就能查看日志；
+                                </li>
+                                <li class="section-content">
+                                    统一规范日志的配置和输出格式；
+                                </li>
+                                <li class="section-content">
+                                    实时的将日志文件从服务器中迁出；
+                                </li>
+                                <li class="section-content">
+                                    提供日志的检索和统计分析的平台；
+                                </li>
                             </div>
                         </div>
                         <div class="item">
@@ -171,42 +199,48 @@
                             </header>
                             <div class="item-bd">
                                 <li class="section-content">
-                                    利用 PXE + Kickstart 批量安装 CentOS7 以及 Docker 环境；
+                                    针对需求，首选开源免费解决方案，采用了业界通用的解决方案 ELK。且 ELK 支持多种日志类型，技术成熟，文档多，非常符合预期。
                                 </li>
                                 <li class="section-content">
-                                    构建文库系统 docker 镜像；
+                                    为了处理大型数据集，实现容错和高可用性采用 ES Cluster，后期根据不同业务对集群分类部署，避免出现，一个业务拖垮了整个 ES 集群。
                                 </li>
                                 <li class="section-content">
-                                    利用 docker 部署文库系统及依赖:
-                                    <li style="text-indent:4em;">haproxy 集群：2节点；</li>
-                                    <li style="text-indent:4em;">文库系统集群：3节点；</li>
-                                    <li style="text-indent:4em;">mycat 集群：2 节点；</li>
-                                    <li style="text-indent:4em;">mysql mha 集群：1主1备2从节点；</li>
-                                    <li style="text-indent:4em;">minio 集群：4节点；</li>
-                                    <li style="text-indent:4em;">elasticsearch 集群：1主3从节点；</li>
-                                    <li style="text-indent:4em;">kibana：1节点；</li>
-                                    <li style="text-indent:4em;">zookeeper：1节点；</li>
-                                    <li style="text-indent:4em;">kafka 集群：1主3从节点；</li>
-                                    <li style="text-indent:4em;">logstash 集群：3节点；</li>
+                                    考虑到大并发情况下，日志传输峰值比较大，Logstash 直接写入 ES 势必会造成服务器上占用系统资源较高，性能不佳，采用 Redis 作缓存，后期改用 Kafka，Kafka 的吞吐量和集群模式都比 Redis 更优秀，同时 Kafka 作为一个订阅消息系统，还具备每秒百万级别的高吞吐量，持久性的、分布式的特点等。
                                 </li>
                                 <li class="section-content">
-                                    利用 LVS + keepalived 实现高可用热备方案；
+                                    引入 Filebeat 组件，相比于 Logstash，Filebeat 更轻量，占用资源更少，所占系统的 CPU 和内存几乎可以忽略不计。
+                                </li>
+                                <li class="section-content">
+                                    ELK 结合 Zabbix 实现异常日志触发告警。
+                                </li>
+                                <li class="section-content">
+                                    最终方案:
+                                    <p>Kibana：负责提供可视化界面，生成图文报表；</p>
+                                    <p>Elasticsearch：负责存储最终数据、建立索引、提供搜索功能；</p>
+                                    <p>Kafka：负责提供高吞吐、低延迟的缓存队列服务；</p>
+                                    <p>Logstash：负责日志的过滤，写入 Elasticsearch；</p>
+                                    <p>Filebeat：负责各种日志的收集。</p>
                                 </li>
                             </div>
-                            <div class="item">
-                                <header class="item-hd">
-                                    <h3 class="item-name"><i class="iconfont icon-dot"></i> 项目总结 </h3>
-                                </header>
-                                <div class="item-bd">
-                                    <p class="section-content" style="text-indent:2em;">
-                                        部署此项目前未接触过 ELK ，边学边部署，花费不少力气，也因此对日志分析产生浓厚兴趣；通过此项目，加深了对 mysql 集群的理解，以及各服务之间相互衔接有进一步认识。
-                                    </p>
-                                </div>
+                        </div>
+                        <div class="item">
+                            <header class="item-hd">
+                                <h3 class="item-name"><i class="iconfont icon-dot"></i> 项目总结 </h3>
+                            </header>
+                            <div class="item-bd">
+                                <p class="section-content">
+                                    对分业务数据进行冷热分离，最大化利用资源。每个业务准备两个 ES 集群，可以理解为冷热集群。7天以内的数据，存入热集群，以 SSD 存储索引。超过7天，就进入冷集群，以 SATA 存储索引，这么一改动，性能又得到提升。
+                                </p>
+                                <p class="section-content">
+                                    Redis 受限于机器内存，当内存达到 Max，数据就会抛弃，无法保证消息的可靠性。在 Redis 中内存越大，触发持久化的操作阻塞主线程的时间就越长，相比之下，Kafka 的数据是堆积在硬盘中，不存在这个问题。
+                                </p>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
+
+            <!-- <div class="content-right"> -->
             <div class="content-right">
                 <section id="skill">
                     <header class="section-hd">
@@ -233,7 +267,7 @@
                             </header>
                             <div class="item-bd">
                                 <p class="section-content">
-                                    常用服务：mysql（mariadb、percona）
+                                    常用服务：Mysql（Mariadb、Percona）
                                 </p>
                                 <p class="section-content">
                                     集群方案：PXC、MHA、MGR 方案；
@@ -250,10 +284,10 @@
                             </header>
                             <div class="item-bd">
                                 <p class="section-content">
-                                    常用服务：redis
+                                    常用服务：Redis
                                 </p>
                                 <p class="section-content">
-                                    集群方案：Codis、Redis Cluster；
+                                    集群方案：Codis Cluster、Redis Cluster；
                                 </p>
                             </div>
                         </div>
@@ -274,18 +308,21 @@
                         <div class="item">
                             <header class="item-hd">
                                 <h3 class="item-name"><i class="iconfont icon-dot"></i> 监控服务 </h3>
-                                <a class="btn item-more">掌握</a>
+                                <a class="btn item-more">一般</a>
                             </header>
                             <div class="item-bd">
                                 <p class="section-content">
-                                    常用服务：zabbix
+                                    常用服务：Zabbix
+                                </p>
+                                <p class="section-content">
+                                    集群方案：Zabbix 分布式架构；
                                 </p>
                             </div>
                         </div>
                         <div class="item">
                             <header class="item-hd">
                                 <h3 class="item-name"><i class="iconfont icon-dot"></i> 日志服务 </h3>
-                                <a class="btn item-more">掌握</a>
+                                <a class="btn item-more">一般</a>
                             </header>
                             <div class="item-bd">
                                 <p class="section-content">
@@ -298,14 +335,14 @@
                             <div class="item">
                                 <header class="item-hd">
                                     <h3 class="item-name"><i class="iconfont icon-dot"></i> 部署工具 </h3>
-                                    <a class="btn item-more">熟练</a>
+                                    <a class="btn item-more">掌握</a>
                                 </header>
                                 <div class="item-bd">
                                     <p class="section-content">
-                                        常用服务：git、jenkins、docker、ansible
+                                        常用服务：GitLab、Docker、Ansible
                                     </p>
                                     <p class="section-content">
-                                        熟悉业务：gitlab + jenkins + docker 实现自动化部署；
+                                        熟悉业务：ansible + docker 实现自动化部署；
                                     </p>
                                 </div>
                             </div>
@@ -328,48 +365,42 @@
                                 <p class="section-content">
                                 </p>
                                 <p class="section-content">
-                                    热爱开源精神，拥抱开源社区，学习新技术、分析源码、记录学习笔记。
+                                    热爱开源精神，拥抱开源社区，学习新技术、记录学习笔记。
                                 </p>
                             </div>
                         <div class="item">
                             <header class="item-hd">
-                                <h3 class="item-name"><i class="iconfont icon-dot"></i> github.com/jangrui/awesome-docker-compose </h3>
-                                <a class="item-more" href="https://github.com/jangrui/awesome-docker-compose" target="_blank" title="docker-compose 常用实例"><i class="iconfont icon-github"></i></a>
+                                <h3 class="item-name"><i class="iconfont icon-dot"></i> github.com/jangrui/docker-compose </h3>
+                                <a class="item-more" href="https://github.com/jangrui/docker-compose" target="_blank" title="docker-compose 常用实例"><i class="iconfont icon-github"></i></a>
                             </header>
                             <div class="item-bd">
                                 <p class="section-content">
-                                    <li class="section-content">MySQL PXC Cluster</li>
-                                    <li class="section-content">MySQL MHA Cluster</li>
-                                    <li class="section-content">MySQL MGR Cluster</li>
-                                    <li class="section-content">MySQL Replica</li>
-                                    <li class="section-content">Mongo Cluster</li>
-                                    <li class="section-content">Mongo WenUI</li>
-                                    <li class="section-content">Redis Codis Cluster</li>
-                                    <li class="section-content">Redis Cluster</li>
-                                    <li class="section-content">Minio Cluster</li>
-                                    <li class="section-content">ELK Filebeat Cluster</li>
-                                    <!-- <li class="section-content">EFK(Elasticsearch + Fluentd + Kibana)</li> -->
-                                    <!-- <li class="section-content">Kafka</li> -->
-                                    <li class="section-content">InfluxDB Grafana </li>
-                                    <li class="section-content">Registry Mirror</li>
+                                    <li class="section-content">ELK</li>
+                                    <li class="section-content">Zabbix</li>
                                     <li class="section-content">LAMP</li>
                                     <li class="section-content">LNMP</li>
-                                    <li class="section-content">Gitlab Pages Runner</li>
-                                    <li class="section-content">Node React Demo</li>
+                                    <li class="section-content">WordPress</li>
+                                    <li class="section-content">Minio Cluster</li>
+                                    <li class="section-content">Docker Registry</li>
+                                    <li class="section-content">Zookeeper Cluster</li>
+                                    <li class="section-content">Redis Cluster</li>
+                                    <li class="section-content">Redis Codis Cluster</li>
+                                    <li class="section-content">MySQL Galera Cluster</li>
+                                    <li class="section-content">MySQL Innodb Cluster</li>
+                                    <li class="section-content">MySQL Replicas Cluster</li>
                                 </p>
                             </div>
                         </div>
                         <div class="item">
                             <header class="item-hd">
-                                <h3 class="item-name"><i class="iconfont icon-dot"></i> github.com/jangrui/awesome-dockerfile </h3>
-                                <a class="item-more" href="https://github.com/jangrui/awesome-dockerfile" target="_blank" title="dockerfile 常用实例"><i class="iconfont icon-github"></i></a>
+                                <h3 class="item-name"><i class="iconfont icon-dot"></i> github.com/jangrui/docker-stack</h3>
+                                <a class="item-more" href="https://github.com/jangrui/docker-stack" target="_blank" title="docker-swarm 常用实例"><i class="iconfont icon-github"></i></a>
                             </header>
                             <div class="item-bd">
                                 <p class="section-content">
-                                    <li class="section-content">elasticsearch-ik</li>
-                                    <li class="section-content">gitlab-zh</li>
-                                    <li class="section-content">dochub</li>
-                                    <li class="section-content">docsify</li>
+                                    <li class="section-content">Portainer</li>
+                                    <li class="section-content">Minio Cluster</li>
+                                    <li class="section-content">MySQL Galera Cluster</li>
                                 </p>
                             </div>
                         </div>
